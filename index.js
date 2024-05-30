@@ -12,8 +12,8 @@ mongoose
   .connect(process.env.MONGO_URL)
   .then(() => console.log("Connect to jobBackend"))
   .catch((err) => console.log(err));
-app.unsubscribe(bodyParser.json());
-app.unsubscribe(bodyParser.urlencoded({extended:true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
 
 app.use('/api/',jobRouter)
 app.listen(process.env.PORT || port, () =>
